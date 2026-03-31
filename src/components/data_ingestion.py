@@ -42,25 +42,25 @@ class DataIngestion:
 
     def export_data_into_feature_store_file_path(self)-> pd.DataFrame:
 
-         try:
+        try:
               
-              logging.info(f"Exporting data from mongodb")
-              raw_file_path = self.data_ingestion_config.artifact_folder 
+            logging.info(f"Exporting data from mongodb")
+            raw_file_path = self.data_ingestion_config.artifact_folder 
 
-              os.makedirs(raw_file_path,exist_ok=True)
+            os.makedirs(raw_file_path,exist_ok=True)
 
-              sensor_data = self.export_collection_as_dataframe(
+            sensor_data = self.export_collection_as_dataframe(
                    colllection_name= MONGO_COLLECTION_NAME,
                    db_name= MONGO_DATABASE_NAME)   
 
-             logging.info(f"saving exported data into store file path : {raw_file_path}")
+            logging.info(f"saving exported data into store file path : {raw_file_path}")
             
-             feature_store_file_path = os.path.join(raw_file_path,'Wafer_fault.csv')
+            feature_store_file_path = os.path.join(raw_file_path,'Wafer_fault.csv')
          
-             sensor_data.to_csv(feature_store_file_path,index=False)
+            sensor_data.to_csv(feature_store_file_path,index=False)
          
-             return feature_store_file_path
-         except Exception as e:
+            return feature_store_file_path
+        except Exception as e:
               raise CustomException(e,sys)
     
     def initiate_data_ingestion(self) -> Path:
