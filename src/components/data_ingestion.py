@@ -2,7 +2,7 @@ import sys
 import os
 import numpy as np
 import pandas as pd
-import pymongo import MongoClient 
+from pymongo import MongoClient 
 from zipfile import Path
 from src.constant import * 
 from src.exception import CustomException
@@ -11,13 +11,13 @@ from src.utils.main_utils import MainUtils
 from dataclasses import dataclass
 
 @dataclass
-class DataIngestionCofig:
+class DataIngestionConfig:
     artifact_folder: str = os.path.join(artifact_folder)
 
 
 class DataIngestion:
     def __init__(self):
-         self.data_ingestion_config = DataIngestionCofig()
+         self.data_ingestion_config = DataIngestionConfig()
          self.utils = MainUtils()
 
 
