@@ -82,4 +82,4 @@ def initiate_data_transformation(self):
         return(train_arr, test_arr, preprocessor_path)
     
     except Exception as e:
-        raise CustomException(e, sys)
+        raise CustomException(e, sys) from e
