@@ -1,8 +1,8 @@
 import sys
 from typing import Generator, List, Tuple
 import os
-import numpy as np  
 import pandas as pd
+import numpy as np
 from sklearn.metrics import accuracy_score
 
 
@@ -18,12 +18,18 @@ from src.utils.main_utils import MainUtils
 
 from dataclasses import dataclass
 
+
 @dataclass
 class ModelTrainerConfig:
-    artifact_folder = os.path.join(artifact_folder)
-    trained_model_file_path = os.path.join(artifact_folder, 'model.pkl')
-    expected_accuracy = 0.45
-    model_config_file_path = os.path.join('config', 'model.yaml')
+    artifact_folder= os.path.join(artifact_folder)
+    trained_model_path= os.path.join(artifact_folder,"model.pkl" )
+    expected_accuracy=0.45
+    model_config_file_path= os.path.join('config','model.yaml')
+
+
+
+
+
 
 class ModelTrainer:
     def __init__(self):
@@ -283,4 +289,3 @@ class ModelTrainer:
 
         except Exception as e:
             raise CustomException(e, sys)
-    

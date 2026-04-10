@@ -3,16 +3,16 @@ import pandas as pd
 import json
 
 #url
-url = "mongodb+srv://kashanmaliq:Allahabad123@cluster0.wjvdxpr.mongodb.net/?appName=Cluster0"
+uri="mongodb+srv://imran:TdPLW9Ad0OzpSSD2@cluster0.fv0lm61.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 #create a new client and connectt to server
-client = MongoClient(url)
+client = MongoClient(uri)
 
 #create database name and collection name
 DATABASE_NAME="pwskills"
 COLLECTION_NAME='waferfault'
 
-df=pd.read_csv(r"C:\Users\kasha\OneDrive\Desktop\Machine Learning\Sensor Project\notebooks\wafer_23012020_041211.csv")
+df=pd.read_csv("C:\Users\imran\Dropbox\PC\Downloads\sensorproject\notebooks\wafer_23012020_041211.csv")
 
 df=df.drop("Unnamed: 0",axis=1)
 
